@@ -33,7 +33,7 @@ use nala to install or fix broken install
     sudo nano /etc/apt/sources.list
 
     deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
-# OR for updates:
+
     deb http://deb.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
 
     sudo apt update
