@@ -10,17 +10,31 @@ Install Curl.
 
     sudo apt install curl gpg
 
-Install the Microsoft package signing key.
+Add the Repository Key: 
+Microsoft signs its packages. You need to download and add their GPG key to verify the packages.
 
+    curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor > /tmp/microsoft.gpg
+    sudo install -o root -g root -m 644 /tmp/microsoft.gpg /etc/apt/trusted.gpg.d/
+    sudo rm /tmp/microsoft.gpg
 
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+Add the Repository: 
+Create a new list file for the repository. Although it's for Ubuntu 20.04, you can add it. Be aware of potential dependency issues.
 
-    sudo install -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/
-    
-    rm microsoft.gpg
+    echo "deb [arch=amd64] https://packages.microsoft.com/ubuntu/20.04/prod focal main" | sudo tee /etc/apt/sources.list.d/microsoft-prod.list
 
 Add and update Microsoft Linux Repository to the system repository list.
-Bash
+
+    sudo apt update
+
+add debian repos for dependancies to /etc/apt/sources.list
+
+use nala to install or fix broken install
+
+    sudo nano /etc/apt/sources.list
+
+    deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+# OR for updates:
+    deb http://deb.debian.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
 
     sudo apt update
 
