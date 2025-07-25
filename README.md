@@ -49,6 +49,11 @@ Install the Intune app.
 
     sudo apt install intune-portal
 
+
+Run with Interactive Mode: Even if dependencies aren't perfectly resolved, trying to run the portal interactively might bypass some background service issues:
+
+    intune-portal --interactive
+
 Reboot your device.
 
 Install the missing Qt utilities used by xdg-mime:
