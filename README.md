@@ -38,6 +38,13 @@ use nala to install or fix broken install
 
     sudo apt update
 
+
+fix intune webview manually
+
+    sudo apt install libgtk-3-0t64 libwebkit2gtk-4.0-dev
+
+
+
 Install the Intune app.
 
     sudo apt install intune-portal
